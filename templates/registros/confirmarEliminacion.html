@@ -1,0 +1,24 @@
+{% extends "inicio/encabezado.html" %}
+{% block titulo %}Confirmar eliminación{% endblock %}
+
+{% block encabezado %}
+<div class="page-header">
+    <div class="page-title">
+        <h3>Eliminar comentario</h3>
+    </div>
+</div>
+{% endblock %}
+
+{% block contenido %}
+<div class="panel panel-default">
+    <div class="panel-body">
+        <p>¿Seguro que deseas eliminar este comentario?</p>
+        <p><strong>{{ object.mensaje }}</strong></p>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+            <a href="{% url 'Comentarios' %}" class="btn btn-default">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

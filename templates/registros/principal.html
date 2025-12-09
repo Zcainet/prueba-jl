@@ -1,0 +1,45 @@
+{% extends "inicio/encabezado.html" %}
+{% block titulo %}Alumnos{% endblock %}
+
+{% block encabezado %}
+<div class="page-header">
+    <div class="page-title">
+        <h3>Alumnos
+            <small>Lista de Alumnos</small>
+        </h3>
+    </div>
+</div>
+{% endblock %}
+
+{% block contenido %}
+<div class="panel panel-default">
+    <div class="panel-body">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Matrícula</th>
+                    <th>Nombre</th>
+                    <th>Carrera</th>
+                    <th>Turno</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for alumno in alumnos %}
+                <tr>
+                    <td class="text-center">
+                        {% if alumno.imagen %}
+                            <img src="{{ alumno.imagen.url }}" class="img-media">
+                        {% endif %}
+                    </td>
+                    <td>{{ alumno.matricula }}</td>
+                    <td>{{ alumno.nombre }}</td>
+                    <td>{{ alumno.carrera }}</td>
+                    <td>{{ alumno.turno }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
